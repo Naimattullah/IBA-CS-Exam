@@ -1,0 +1,20 @@
+echo " Welcome to my Reconn Project "
+echo
+echo
+echo " First Stage - Domain Name/IP Address for which you are looking for"
+read n
+echo " IP resolution - Know IP address"
+nslookup $n
+echo " Second Stage - Whois/Dig tool for Domain name"
+whois $n
+echo
+dig $n
+echo
+echo " Sublister tool for subdomain info"
+sublist3r -d $n -o sublister.txt
+echo
+echo " The Harvester Tool for email addresses"
+theHarvester -d $n -1 50 -b google harvester.txt
+echo
+echo
+
